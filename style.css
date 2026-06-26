@@ -1,0 +1,2861 @@
+/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 1
+===================================================== */
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#ffd8e8;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+    color:#ffffff;
+
+    width:100%;
+
+    min-height:100vh;
+
+    position:relative;
+
+}
+
+/* ==========================
+   ROOT COLORS
+========================== */
+
+:root{
+
+    --pink:#ff5c8a;
+
+    --pink2:#ff8db2;
+
+    --pink3:#ffd7e8;
+
+    --white:#ffffff;
+
+    --dark:#1b1b1b;
+
+    --shadow:0 15px 40px rgba(0,0,0,.25);
+
+    --radius:25px;
+
+    --transition:.8s;
+
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+body{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffd6e8,
+
+#ffe8f4,
+
+#fff7fb
+
+);
+
+background-size:400% 400%;
+
+animation:bgMove 18s ease infinite;
+
+}
+
+/* ==========================
+   SCENE
+========================== */
+
+.scene{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+min-height:100vh;
+
+height:auto;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+transition:1s;
+
+padding:40px;
+
+}
+
+.scene.active{
+
+opacity:1;
+
+visibility:visible;
+
+pointer-events:auto;
+
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+.loadingContent{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+.bigHeart{
+
+font-size:100px;
+
+animation:heartbeat 1s infinite;
+
+filter:
+
+drop-shadow(0 0 25px hotpink);
+
+}
+
+.loadingContent h1{
+
+font-size:45px;
+
+color:white;
+
+text-shadow:
+
+0 0 15px hotpink;
+
+}
+
+.loadingContent p{
+
+font-size:20px;
+
+opacity:.9;
+
+}
+
+.loaderBar{
+
+width:320px;
+
+height:12px;
+
+background:white;
+
+border-radius:100px;
+
+overflow:hidden;
+
+margin-top:20px;
+
+}
+
+.loaderProgress{
+
+width:0%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#ff4d88,
+
+#ff9ec0
+
+);
+
+animation:loadingBar 3s linear forwards;
+
+}
+
+/* ==========================
+   OPENING
+========================== */
+
+.openingContent{
+
+max-width:900px;
+
+text-align:center;
+
+animation:fadeUp 1.5s;
+
+}
+
+.openingContent h1{
+
+font-size:65px;
+
+font-weight:700;
+
+line-height:90px;
+
+color:white;
+
+text-shadow:
+
+0 0 20px hotpink,
+
+0 0 50px deeppink;
+
+margin-bottom:35px;
+
+}
+
+.openingContent p{
+
+font-size:24px;
+
+color:white;
+
+line-height:40px;
+
+margin-bottom:55px;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+button{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:60px;
+
+font-size:22px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:white;
+
+color:var(--pink);
+
+transition:.35s;
+
+box-shadow:var(--shadow);
+
+}
+
+button:hover{
+
+transform:
+
+translateY(-6px)
+
+scale(1.05);
+
+background:var(--pink);
+
+color:white;
+
+box-shadow:
+
+0 0 25px hotpink;
+
+}
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+/* ==========================
+   FLOAT LAYERS
+========================== */
+
+#heartContainer,
+#sakuraContainer,
+#starContainer,
+#meteorContainer{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:2;
+
+}
+
+/* ==========================
+   GLASS EFFECT
+========================== */
+
+.glass{
+
+background:
+
+rgba(255,255,255,.18);
+
+backdrop-filter:blur(20px);
+
+border:
+
+1px solid rgba(255,255,255,.25);
+
+border-radius:25px;
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.18);
+
+}
+
+/* ==========================
+   UTILITIES
+========================== */
+
+.hidden{
+
+display:none;
+
+}
+
+.center{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.text-center{
+
+text-align:center;
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes heartbeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes loadingBar{
+
+0%{
+
+width:0%;
+
+}
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 2A
+   ENVELOPE + LETTER
+=====================================================*/
+
+/* ==========================
+   ENVELOPE PAGE
+========================== */
+
+#envelopePage{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#ffd6e8,
+
+#fff4fa
+
+);
+
+}
+
+.envelopeWrapper{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+width:100%;
+
+height:100%;
+
+}
+
+.envelope{
+
+position:relative;
+
+width:340px;
+
+height:230px;
+
+cursor:pointer;
+
+transition:.6s;
+
+filter:
+
+drop-shadow(0 20px 30px rgba(0,0,0,.25));
+
+}
+
+.envelope:hover{
+
+transform:
+
+translateY(-8px)
+
+scale(1.04);
+
+}
+
+.front{
+
+position:absolute;
+
+bottom:0;
+
+width:100%;
+
+height:180px;
+
+background:linear-gradient(
+
+180deg,
+
+#ff7ca9,
+
+#ff5c8a
+
+);
+
+border-radius:0 0 18px 18px;
+
+z-index:2;
+
+}
+
+.flap{
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:120px;
+
+background:#ff9bbd;
+
+clip-path:
+
+polygon(
+
+0 0,
+
+100% 0,
+
+50% 100%
+
+);
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:5;
+
+}
+
+.envelope.open .flap{
+
+transform:
+
+rotateX(180deg);
+
+}
+
+.letterPreview{
+
+position:absolute;
+
+left:50%;
+
+top:65%;
+
+transform:
+
+translate(-50%,-50%);
+
+font-size:22px;
+
+font-weight:600;
+
+color:white;
+
+z-index:6;
+
+text-align:center;
+
+pointer-events:none;
+
+}
+
+/* ==========================
+   LETTER PAGE
+========================== */
+
+#letterPage{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#fff7fb,
+
+#ffe4ef
+
+);
+
+}
+
+.paper{
+
+width:850px;
+
+max-width:95%;
+
+min-height:560px;
+
+background:white;
+
+border-radius:20px;
+
+padding:45px;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.2);
+
+position:relative;
+
+animation:
+
+fadeUp 1s;
+
+}
+
+.paper h2{
+
+text-align:center;
+
+color:var(--pink);
+
+font-size:42px;
+
+margin-bottom:35px;
+
+text-shadow:
+
+0 0 10px pink;
+
+}
+
+#typingText{
+
+font-size:22px;
+
+line-height:42px;
+
+color:#555;
+
+min-height:260px;
+
+white-space:pre-line;
+
+}
+
+#nextButton{
+
+display:block;
+
+margin:40px auto 0;
+
+}
+
+/* efek kertas */
+
+.paper::before{
+
+content:"";
+
+position:absolute;
+
+top:18px;
+
+left:18px;
+
+right:18px;
+
+bottom:18px;
+
+border:2px dashed rgba(255,150,190,.3);
+
+border-radius:15px;
+
+pointer-events:none;
+
+}
+
+/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 2B
+   QUESTION PAGE
+===================================================== */
+
+
+/* ==========================
+   QUESTION PAGE
+========================== */
+
+#questionPage{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffd7e8,
+
+#fff0f7
+
+);
+
+}
+
+
+/* CARD PERTANYAAN */
+
+.questionCard{
+
+width:650px;
+
+max-width:90%;
+
+padding:50px;
+
+text-align:center;
+
+background:
+
+rgba(255,255,255,.25);
+
+backdrop-filter:
+
+blur(20px);
+
+border-radius:35px;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.2);
+
+animation:
+
+fadeUp 1.2s;
+
+}
+
+
+/* ICON */
+
+.questionCard h1{
+
+font-size:90px;
+
+margin-bottom:20px;
+
+animation:
+
+heartbeat 1.5s infinite;
+
+}
+
+
+/* JUDUL */
+
+.questionCard h2{
+
+font-size:45px;
+
+color:white;
+
+text-shadow:
+
+0 0 15px hotpink;
+
+margin-bottom:50px;
+
+}
+
+
+/* ==========================
+   BUTTON AREA
+========================== */
+
+
+.buttonArea{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+flex-wrap:wrap;
+
+}
+
+
+/* YES BUTTON */
+
+#yesButton{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ff4d88,
+
+#ff8db2
+
+);
+
+color:white;
+
+min-width:200px;
+
+}
+
+
+#yesButton:hover{
+
+box-shadow:
+
+0 0 40px pink;
+
+transform:
+
+scale(1.12);
+
+}
+
+
+/* NO BUTTON */
+
+#noButton{
+
+background:white;
+
+color:#ff5c8a;
+
+position:relative;
+
+min-width:200px;
+
+}
+
+
+/* ==========================
+   LOVE PAGE
+========================== */
+
+
+#lovePage{
+
+background:
+
+radial-gradient(
+
+circle,
+
+#ff8db2,
+
+#ff4d88
+
+);
+
+overflow:hidden;
+
+}
+
+
+/* CAHAYA */
+
+.loveGlow{
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+background:
+
+rgba(255,255,255,.25);
+
+border-radius:50%;
+
+filter:
+
+blur(80px);
+
+animation:
+
+pulseGlow 3s infinite;
+
+}
+
+
+/* TEXT LOVE */
+
+#lovePage h1{
+
+font-size:90px;
+
+color:white;
+
+z-index:5;
+
+text-align:center;
+
+text-shadow:
+
+0 0 25px white,
+
+0 0 60px pink;
+
+animation:
+
+lovePop 1.5s;
+
+}
+
+
+#lovePage p{
+
+margin-top:30px;
+
+font-size:30px;
+
+color:white;
+
+z-index:5;
+
+}
+
+
+/* ==========================
+   HEART EXPLOSION
+========================== */
+
+
+.loveHeart{
+
+position:absolute;
+
+font-size:35px;
+
+animation:
+
+heartExplosion 2s forwards;
+
+}
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+
+@keyframes pulseGlow{
+
+
+0%{
+
+transform:
+
+scale(.8);
+
+opacity:.5;
+
+}
+
+
+50%{
+
+transform:
+
+scale(1.3);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+
+scale(.8);
+
+opacity:.5;
+
+}
+
+
+}
+
+
+
+@keyframes lovePop{
+
+
+0%{
+
+opacity:0;
+
+transform:
+
+scale(.3)
+
+rotate(-10deg);
+
+}
+
+
+70%{
+
+transform:
+
+scale(1.15);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:
+
+scale(1);
+
+}
+
+
+}
+
+
+
+@keyframes heartExplosion{
+
+
+0%{
+
+opacity:1;
+
+transform:
+
+translate(0,0)
+
+scale(.5);
+
+}
+
+
+100%{
+
+opacity:0;
+
+transform:
+
+translate(
+
+var(--x),
+
+var(--y)
+
+)
+
+scale(2);
+
+}
+
+
+}
+
+/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 2C
+   GALLERY POLAROID
+===================================================== */
+
+
+/* ==========================
+   GALLERY PAGE
+========================== */
+
+
+#galleryPage{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#fff1f7,
+
+#ffd6e8
+
+);
+
+overflow:hidden;
+
+}
+
+
+/* JUDUL */
+
+#galleryPage h1{
+
+font-size:65px;
+
+color:white;
+
+margin-bottom:60px;
+
+text-shadow:
+
+0 0 20px hotpink;
+
+animation:
+
+fadeDown 1.2s;
+
+}
+
+
+/* ==========================
+   GALLERY CONTAINER
+========================== */
+
+
+.gallery{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:45px;
+
+flex-wrap:wrap;
+
+}
+
+
+/* ==========================
+   POLAROID
+========================== */
+
+
+.photo{
+
+width:280px;
+
+background:white;
+
+padding:18px;
+
+padding-bottom:35px;
+
+border-radius:8px;
+
+box-shadow:
+
+0 25px 50px rgba(0,0,0,.25);
+
+position:relative;
+
+transition:.6s;
+
+animation:
+
+photoShow 1.5s backwards;
+
+}
+
+
+/* ROTASI FOTO */
+
+.photo:nth-child(1){
+
+transform:
+
+rotate(-8deg);
+
+animation-delay:.3s;
+
+}
+
+
+.photo:nth-child(2){
+
+transform:
+
+rotate(5deg);
+
+animation-delay:.6s;
+
+}
+
+
+.photo:nth-child(3){
+
+transform:
+
+rotate(-4deg);
+
+animation-delay:.9s;
+
+}
+
+
+
+/* HOVER */
+
+
+.photo:hover{
+
+transform:
+
+translateY(-25px)
+
+rotate(0deg)
+
+scale(1.08);
+
+z-index:10;
+
+box-shadow:
+
+0 40px 80px rgba(0,0,0,.35);
+
+}
+
+
+/* GAMBAR */
+
+
+.photo img{
+
+width:100%;
+
+height:320px;
+
+object-fit:cover;
+
+border-radius:5px;
+
+}
+
+
+
+/* TEXT FOTO */
+
+
+.photo p{
+
+color:#ff5c8a;
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:600;
+
+margin-top:20px;
+
+}
+
+
+
+/* ==========================
+   PHOTO LIGHT EFFECT
+========================== */
+
+
+.photo::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+120deg,
+
+transparent,
+
+rgba(255,255,255,.6),
+
+transparent
+
+);
+
+transform:
+
+translateX(-100%);
+
+transition:.8s;
+
+}
+
+
+.photo:hover::before{
+
+transform:
+
+translateX(100%);
+
+}
+
+
+
+/* ==========================
+   FLOWER PAGE BASIC
+========================== */
+
+
+#flowerPage{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#fff0f6,
+
+#ffc4dd
+
+);
+
+text-align:center;
+
+}
+
+
+
+/* BACKGROUND GLOW */
+
+
+.flowerGlow{
+
+position:absolute;
+
+width:450px;
+
+height:450px;
+
+border-radius:50%;
+
+background:
+
+rgba(255,120,170,.4);
+
+filter:
+
+blur(90px);
+
+animation:
+
+pulseGlow 4s infinite;
+
+}
+
+
+/* BOUQUET */
+
+
+.bouquet{
+
+width:350px;
+
+max-width:80%;
+
+z-index:5;
+
+animation:
+
+flowerAppear 2s;
+
+filter:
+
+drop-shadow(
+
+0 25px 30px rgba(0,0,0,.25)
+
+);
+
+}
+
+
+
+/* TEXT BUNGA */
+
+
+.flowerContent h1{
+
+margin-top:40px;
+
+font-size:45px;
+
+color:white;
+
+text-shadow:
+
+0 0 20px hotpink;
+
+}
+
+
+
+.flowerContent p{
+
+margin-top:25px;
+
+font-size:22px;
+
+color:white;
+
+}
+
+
+/* ==========================
+   ANIMATION
+========================== */
+
+
+@keyframes photoShow{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(80px)
+
+scale(.8);
+
+}
+
+
+to{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+@keyframes fadeDown{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(-50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+
+translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes flowerAppear{
+
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(300px)
+
+scale(.5);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+}
+
+
+}
+
+/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 3A
+   NIGHT SKY + STARS + METEOR
+===================================================== */
+
+
+/* ==========================
+   NIGHT PAGE
+========================== */
+
+
+#nightPage{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#05051c,
+
+#10164d,
+
+#02020b
+
+);
+
+overflow:hidden;
+
+}
+
+
+/* ==========================
+   MOON
+========================== */
+
+
+.moon{
+
+position:absolute;
+
+top:90px;
+
+right:150px;
+
+
+width:170px;
+
+height:170px;
+
+
+border-radius:50%;
+
+
+background:
+
+#fff;
+
+
+box-shadow:
+
+0 0 30px white,
+
+0 0 80px #ffe9f7,
+
+0 0 140px rgba(255,255,255,.8);
+
+
+animation:
+
+moonFloat 5s infinite alternate;
+
+}
+
+
+/* BAYANGAN BULAN */
+
+
+.moon::after{
+
+content:"";
+
+position:absolute;
+
+width:40px;
+
+height:40px;
+
+background:#ddd;
+
+border-radius:50%;
+
+top:45px;
+
+left:80px;
+
+opacity:.4;
+
+}
+
+
+/* ==========================
+   STAR CONTAINER
+========================== */
+
+
+#nightStars{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+top:0;
+
+left:0;
+
+}
+
+
+/* STAR */
+
+.star{
+
+position:absolute;
+
+width:4px;
+
+height:4px;
+
+background:white;
+
+border-radius:50%;
+
+
+box-shadow:
+
+0 0 15px white;
+
+
+animation:
+
+twinkle 2s infinite;
+
+}
+
+
+
+/* ==========================
+   SHOOTING STAR
+========================== */
+
+
+.shootingStar{
+
+
+position:absolute;
+
+
+width:220px;
+
+height:3px;
+
+
+background:
+
+linear-gradient(
+
+90deg,
+
+white,
+
+transparent
+
+);
+
+
+transform:
+
+rotate(-35deg);
+
+
+animation:
+
+shoot 3s linear infinite;
+
+
+}
+
+
+
+#shootingStars{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+}
+
+
+
+/* ==========================
+   NIGHT CONTENT
+========================== */
+
+
+.nightContent{
+
+z-index:5;
+
+text-align:center;
+
+animation:
+
+fadeUp 2s;
+
+}
+
+
+.nightContent h1{
+
+
+font-size:90px;
+
+
+color:white;
+
+
+text-shadow:
+
+
+0 0 20px white,
+
+0 0 50px #ff7eb3;
+
+
+}
+
+
+.nightContent h2{
+
+
+font-size:70px;
+
+
+color:#ff8db2;
+
+
+margin-top:20px;
+
+
+text-shadow:
+
+
+0 0 30px pink;
+
+
+}
+
+
+
+.nightContent p{
+
+
+max-width:700px;
+
+
+margin-top:40px;
+
+
+font-size:24px;
+
+
+line-height:45px;
+
+
+color:white;
+
+
+}
+
+
+
+/* ==========================
+   HUG PAGE
+========================== */
+
+
+#hugPage{
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#ff7eb3,
+
+#ff758c
+
+);
+
+
+text-align:center;
+
+
+}
+
+
+
+/* HUG CONTENT */
+
+
+.hugContent{
+
+
+max-width:850px;
+
+
+background:
+
+
+rgba(255,255,255,.18);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+padding:50px;
+
+
+border-radius:35px;
+
+
+box-shadow:
+
+
+0 30px 70px rgba(0,0,0,.25);
+
+
+animation:
+
+
+fadeUp 1.5s;
+
+
+}
+
+
+
+.hugContent h1{
+
+
+font-size:55px;
+
+
+color:white;
+
+
+text-shadow:
+
+
+0 0 20px pink;
+
+
+}
+
+
+
+.hugContent p{
+
+
+margin-top:35px;
+
+
+font-size:24px;
+
+
+line-height:45px;
+
+
+color:white;
+
+
+}
+
+
+
+/* BUTTON PELUK */
+
+
+#hugButton{
+
+
+margin-top:40px;
+
+
+font-size:25px;
+
+
+padding:22px 60px;
+
+
+background:white;
+
+
+color:#ff5c8a;
+
+
+}
+
+
+#hugButton:hover{
+
+
+background:#ff5c8a;
+
+
+color:white;
+
+
+box-shadow:
+
+
+0 0 40px white;
+
+
+}
+
+
+
+/* ==========================
+   FINAL PAGE
+========================== */
+
+
+#finalPage{
+
+
+background:
+
+
+radial-gradient(
+
+circle,
+
+#ffb6d0,
+
+#ff4d88
+
+);
+
+
+text-align:center;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.finalGlow{
+
+
+position:absolute;
+
+
+width:600px;
+
+
+height:600px;
+
+
+background:white;
+
+
+opacity:.25;
+
+
+filter:blur(100px);
+
+
+animation:
+
+
+pulseGlow 5s infinite;
+
+
+}
+
+
+
+.finalContent{
+
+
+z-index:5;
+
+
+}
+
+
+
+.finalHeart{
+
+
+font-size:130px;
+
+
+animation:
+
+
+heartbeat 1s infinite;
+
+
+}
+
+
+
+.finalContent h1{
+
+
+font-size:75px;
+
+
+color:white;
+
+
+text-shadow:
+
+
+0 0 30px white;
+
+
+}
+
+
+
+.finalContent h2{
+
+
+font-size:45px;
+
+
+color:white;
+
+
+margin-top:20px;
+
+
+}
+
+
+
+.finalContent p{
+
+
+font-size:25px;
+
+
+line-height:45px;
+
+
+max-width:800px;
+
+
+margin:35px auto;
+
+
+color:white;
+
+
+}
+
+
+.signature{
+
+
+font-size:35px;
+
+
+font-style:italic;
+
+
+color:white;
+
+
+}
+
+
+
+/* ==========================
+   KEYFRAMES
+========================== */
+
+
+@keyframes moonFloat{
+
+
+from{
+
+
+transform:
+
+translateY(0);
+
+
+}
+
+
+to{
+
+
+transform:
+
+translateY(20px);
+
+
+}
+
+
+}
+
+
+
+@keyframes twinkle{
+
+
+0%,100%{
+
+
+opacity:.3;
+
+
+transform:
+
+scale(.7);
+
+
+}
+
+
+50%{
+
+
+opacity:1;
+
+
+transform:
+
+scale(1.5);
+
+
+}
+
+
+}
+
+
+
+@keyframes shoot{
+
+
+0%{
+
+
+transform:
+
+translate(-300px,-200px)
+
+rotate(-35deg);
+
+
+opacity:0;
+
+
+}
+
+
+
+20%{
+
+
+opacity:1;
+
+
+}
+
+
+
+100%{
+
+
+transform:
+
+translate(1200px,700px)
+
+rotate(-35deg);
+
+
+opacity:0;
+
+
+}
+
+
+}/* =====================================================
+   LOVE STORY ULTIMATE v10
+   style.css - PART 3B
+   ENDING + FINAL PAGE
+===================================================== */
+
+
+/* ==========================
+   HUG PAGE
+========================== */
+
+
+#hugPage{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffbfd7,
+
+#fff0f7
+
+);
+
+text-align:center;
+
+}
+
+
+.hugContent{
+
+width:800px;
+
+max-width:90%;
+
+padding:50px;
+
+background:
+
+rgba(255,255,255,.25);
+
+backdrop-filter:
+
+blur(20px);
+
+border-radius:35px;
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.2);
+
+animation:
+
+fadeUp 1.5s;
+
+}
+
+
+
+.hugContent h1{
+
+font-size:55px;
+
+color:white;
+
+text-shadow:
+
+0 0 20px hotpink;
+
+margin-bottom:35px;
+
+}
+
+
+
+.hugContent p{
+
+font-size:23px;
+
+line-height:45px;
+
+color:white;
+
+white-space:pre-line;
+
+}
+
+
+
+#hugButton{
+
+margin-top:40px;
+
+font-size:25px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#ff5c8a,
+
+#ff9ec0
+
+);
+
+color:white;
+
+}
+
+
+/* ==========================
+   FINAL PAGE
+========================== */
+
+
+#finalPage{
+
+background:
+
+radial-gradient(
+
+circle,
+
+#ff8db2,
+
+#ff3f7f
+
+);
+
+overflow:hidden;
+
+}
+
+
+
+.finalGlow{
+
+position:absolute;
+
+width:600px;
+
+height:600px;
+
+background:
+
+rgba(255,255,255,.25);
+
+border-radius:50%;
+
+filter:
+
+blur(100px);
+
+animation:
+
+finalGlowMove 5s infinite;
+
+}
+
+
+
+.finalContent{
+
+position:relative;
+
+z-index:5;
+
+text-align:center;
+
+color:white;
+
+animation:
+
+finalAppear 2s;
+
+}
+
+
+
+.finalHeart{
+
+font-size:120px;
+
+animation:
+
+heartbeat 1s infinite;
+
+filter:
+
+drop-shadow(
+
+0 0 30px white
+
+);
+
+}
+
+
+
+.finalContent h1{
+
+font-size:70px;
+
+text-shadow:
+
+0 0 25px white;
+
+margin-top:20px;
+
+}
+
+
+
+.finalContent h2{
+
+font-size:45px;
+
+margin-top:25px;
+
+color:#ffe0eb;
+
+}
+
+
+
+.finalContent p{
+
+margin-top:40px;
+
+font-size:25px;
+
+line-height:45px;
+
+max-width:800px;
+
+}
+
+
+
+.signature{
+
+margin-top:45px;
+
+font-size:30px;
+
+font-style:italic;
+
+}
+
+
+/* ==========================
+   FLOATING HEART
+========================== */
+
+
+.floatingHeart{
+
+position:absolute;
+
+font-size:30px;
+
+animation:
+
+floatHeart 4s linear forwards;
+
+}
+
+
+
+/* ==========================
+   ANIMATION END
+========================== */
+
+
+@keyframes finalAppear{
+
+
+0%{
+
+opacity:0;
+
+transform:
+
+scale(.5);
+
+}
+
+
+100%{
+
+opacity:1;
+
+transform:
+
+scale(1);
+
+}
+
+}
+
+
+
+@keyframes finalGlowMove{
+
+
+0%{
+
+transform:
+
+translate(-150px,-100px);
+
+}
+
+
+50%{
+
+transform:
+
+translate(150px,100px);
+
+}
+
+
+100%{
+
+transform:
+
+translate(-150px,-100px);
+
+}
+
+}
+
+
+
+@keyframes floatHeart{
+
+
+0%{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(.5);
+
+}
+
+
+100%{
+
+opacity:0;
+
+transform:
+
+translateY(-600px)
+
+scale(2);
+
+}
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:768px){
+
+
+.openingContent h1{
+
+font-size:38px;
+
+line-height:55px;
+
+}
+
+
+.openingContent p{
+
+font-size:18px;
+
+}
+
+
+.questionCard h2{
+
+font-size:30px;
+
+}
+
+
+#lovePage h1{
+
+font-size:55px;
+
+}
+
+
+#galleryPage h1{
+
+font-size:40px;
+
+}
+
+
+.gallery{
+
+gap:25px;
+
+}
+
+
+.photo{
+
+width:230px;
+
+}
+
+
+.photo img{
+
+height:260px;
+
+}
+
+
+.moon{
+
+width:90px;
+
+height:90px;
+
+right:40px;
+
+top:40px;
+
+}
+
+
+.nightContent h1{
+
+font-size:50px;
+
+}
+
+
+.nightContent h2{
+
+font-size:35px;
+
+}
+
+
+.hugContent h1{
+
+font-size:35px;
+
+}
+
+
+.finalContent h1{
+
+font-size:45px;
+
+}
+
+
+.finalContent h2{
+
+font-size:30px;
+
+}
+
+
+.finalHeart{
+
+font-size:80px;
+
+}
+
+
+}
+
+
+/* ==========================
+   FIX SCROLL LETTER
+========================== */
+
+
+#letterPage{
+
+overflow-y:auto;
+
+align-items:flex-start;
+
+padding-top:60px;
+
+padding-bottom:100px;
+
+}
+
+
+.paper{
+
+margin-bottom:100px;
+
+}
+
+
+/* HP */
+
+@media(max-width:768px){
+
+#letterPage{
+
+padding-top:30px;
+
+}
+
+
+.paper{
+
+min-height:auto;
+
+padding:30px;
+
+}
+
+#typingText{
+
+font-size:18px;
+
+line-height:35px;
+
+}
+
+}
